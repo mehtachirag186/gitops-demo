@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-web
+  template:
+    metadata:
+      labels:
+        app: gitops-web
+    spec:
+      containers:
+      - name: web
+        image: nginx
+        ports:
+        - containerPort: 80
